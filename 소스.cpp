@@ -35,7 +35,7 @@ void GameMove() {
 
 //그려주는 함수
 void PrintScreen() {
-	bg[24][79] = '/0';//배열끝에 널문자를 넣어줘서 문자열로 만든다.
+	bg[24][79] = '\0';//배열끝에 널문자를 넣어줘서 문자열로 만든다.
 	printf("%s", bg);
 }
 
@@ -44,13 +44,13 @@ void main() {
 	pBullet.y = 0;
 	pBullet.fire = true;//미사일 발사중
 
-	int dwTime = GetTickCount(); //현재 초단위 시간 함수 1/1000초
+	int dwTime = GetTickCount64(); //현재 초단위 시간 함수 1/1000초
 
 
 	while (true) {//게임 무한루프
 		//지연
-		if (dwTime + 15 < GetTickCount()) {
-			dwTime = GetTickCount();
+		if (dwTime + 15 < GetTickCount64()) {
+			dwTime = GetTickCount64();
 			//지워준다
 			ClearScreen();
 			//움직임처리
